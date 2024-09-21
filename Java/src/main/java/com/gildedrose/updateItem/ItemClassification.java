@@ -9,6 +9,7 @@ public enum ItemClassification {
     AGED_BRIE(Arrays.asList("Aged Brie")),
     SULFURAS(Arrays.asList("Sulfuras, Hand of Ragnaros")),
     BACKSTAGE_CONCERT(Arrays.asList("Backstage passes to a TAFKAL80ETC concert")),
+    CONJURED(Arrays.asList("Conjured")),
     OTHERS(null),
     ;
 

@@ -12,6 +12,7 @@ public class UpdateLogicFactory {
         logicMap.put(AGED_BRIE, new AgedBrieUpdateLogic());
         logicMap.put(SULFURAS, new SulfurasUpdateLogic());
         logicMap.put(BACKSTAGE_CONCERT, new BackStageConcertUpdateLogic());
+        logicMap.put(CONJURED, new ConjuredUpdateLogic());
         logicMap.put(OTHERS, new DefaultUpdateLogic());
     }
 
