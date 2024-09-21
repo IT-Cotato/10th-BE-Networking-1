@@ -1,16 +1,29 @@
 package com.gildedrose;
 
+import com.gildedrose.updateItem.ItemClassification;
+import com.gildedrose.updateItem.UpdateLogic;
+import com.gildedrose.updateItem.UpdateLogicFactory;
+
 class GildedRose {
     Item[] items;
+    UpdateLogicFactory updateLogicFactory;
 
     public GildedRose(Item[] items) {
         this.items = items;
+        updateLogicFactory = new UpdateLogicFactory();
     }
 
     public void updateQuality() {
+        for (Item item : items) {
+            UpdateLogic updateLogic = updateLogicFactory.findUpdateLogic(ItemClassification.of(item));
+            updateLogic.update(item);
+        }
+    }
+
+    /*public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
             if (!items[i].name.equals("Aged Brie")
-                    && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (items[i].quality > 0) {
                     if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
                         items[i].quality = items[i].quality - 1;
@@ -58,5 +71,5 @@ class GildedRose {
                 }
             }
         }
-    }
+    }*/
 }
