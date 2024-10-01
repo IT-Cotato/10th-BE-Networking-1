@@ -1,4 +1,4 @@
-package com.constant;
+package com.gildedrose.constant;
 
 public enum ItemPropertyConstant {
     MINIMUM_QUALITY(0),

@@ -1,4 +1,4 @@
-package com.constant;
+package com.gildedrose.constant;
 
 import java.util.Arrays;
 
@@ -9,19 +9,19 @@ public enum ItemNameConstant {
     CONJURED("Conjured"),
     DEFAULT("");
 
-    private final String name;
+    public final String name;
 
     ItemNameConstant(String name) {
         this.name = name;
     }
 
-    private String getName() {
-        return name;
-    }
+    // private String getName() {
+    //     return name;
+    // }
 
     public static ItemNameConstant findNameToEnumIn(String itemName) {
         return Arrays.stream(ItemNameConstant.values())
-            .filter(modifier -> itemName.contains(modifier.getName()))
+            .filter(modifier -> itemName.contains(modifier.name))
             .findFirst()
             .get();
     }
