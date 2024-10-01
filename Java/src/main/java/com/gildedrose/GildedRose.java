@@ -16,7 +16,7 @@ class GildedRose {
     public void updateQuality() {
         for (Item item : items) {
             Update updateHandler = updateFactory.getUpdate(
-                ItemNameConstant.findNameToEnumIn(item.name)
+                ItemNameConstant.from(item)
             );
             updateHandler.update(item);
         }
