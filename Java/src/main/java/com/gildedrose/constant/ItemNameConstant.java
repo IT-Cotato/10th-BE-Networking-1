@@ -9,15 +9,11 @@ public enum ItemNameConstant {
     CONJURED("Conjured"),
     DEFAULT("");
 
-    public final String name;
+    private final String name;
 
     ItemNameConstant(String name) {
         this.name = name;
     }
-
-    // private String getName() {
-    //     return name;
-    // }
 
     public static ItemNameConstant findNameToEnumIn(String itemName) {
         return Arrays.stream(ItemNameConstant.values())
