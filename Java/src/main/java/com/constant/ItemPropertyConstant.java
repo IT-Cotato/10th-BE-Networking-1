@@ -1,6 +1,6 @@
 package com.constant;
 
-enum ItemPropertyConstant {
+public enum ItemPropertyConstant {
     MINIMUM_QUALITY(0),
     MAXIMUM_QUALITY(50),
     BACKSTAGE_DAY_OF_10(10),
