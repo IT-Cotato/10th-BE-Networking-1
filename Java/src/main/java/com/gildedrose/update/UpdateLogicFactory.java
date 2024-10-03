@@ -11,6 +11,8 @@ public class UpdateLogicFactory {
                 return new BackstagePass();
             case "Sulfuras, Hand of Ragnaros":
                 return new Sulfuras();
+            case "Conjured Mana Cake":
+                return new Conjured();
             default:
                 return new DefaultItem();
         }
