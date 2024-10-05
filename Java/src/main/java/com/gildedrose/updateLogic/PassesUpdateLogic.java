@@ -2,10 +2,11 @@ package com.gildedrose.updateLogic;
 
 import com.gildedrose.Item;
 
-public class PassesUpdateLogic implements UpdateLogic {
+public class PassesUpdateLogic extends UpdateLogic {
     @Override
     public void update(Item item) {
-        item.sellIn -= 1;
+        decreaseSellIn(item);
+        
         item.quality = item.quality < 50 ? item.quality + 1 : 50;
 
         if (item.sellIn <= 10) {

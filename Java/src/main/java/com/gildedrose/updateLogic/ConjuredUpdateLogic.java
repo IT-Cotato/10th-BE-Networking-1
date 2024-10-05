@@ -2,10 +2,11 @@ package com.gildedrose.updateLogic;
 
 import com.gildedrose.Item;
 
-public class ConjuredUpdateLogic implements UpdateLogic {
+public class ConjuredUpdateLogic extends UpdateLogic {
     @Override
     public void update(Item item) {
-        item.sellIn -= 1;
+        decreaseSellIn(item);
+
         item.quality = item.quality >= 2 ? item.quality - 2 : 0;
 
         if (item.sellIn < 0) {
