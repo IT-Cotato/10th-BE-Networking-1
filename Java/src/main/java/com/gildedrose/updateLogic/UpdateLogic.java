@@ -11,16 +11,20 @@ public abstract class UpdateLogic {
         item.sellIn -= 1;
     }
 
-    protected void decreaseQuality(Item item, int downAmount) {
+    protected void decreaseQuality(Item item, int decreaseAmount) {
         if (item.sellIn < 0) {
-            item.quality = Math.max(item.quality - downAmount * DOWN_MULTIPLE, MIN_QUALITY);
+            item.quality = Math.max(item.quality - decreaseAmount * DOWN_MULTIPLE, MIN_QUALITY);
         } else {
-            item.quality = Math.max(item.quality - downAmount, MIN_QUALITY);
+            item.quality = Math.max(item.quality - decreaseAmount, MIN_QUALITY);
         }
     }
 
-    protected void increaseQuality(Item item) {
-        item.quality = Math.min(item.quality + 1, MAX_QUALITY);
+    protected void increaseQuality(Item item, int increaseAmount) {
+        item.quality = Math.min(item.quality + increaseAmount, MAX_QUALITY);
+    }
+
+    protected void resetQuality(Item item) {
+        item.quality = 0;
     }
 
     public abstract void update(Item item);
