@@ -1,30 +1,33 @@
 package com.gildedrose.updateLogic;
 
-import java.util.Arrays;
+import static com.gildedrose.updateLogic.ItemCategory.*;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class UpdateLogicFactory {
-    private final Map<String, UpdateLogic> updateLogicMap;
-    private final List<String> filters = Arrays.asList("Aged Brie", "Backstage passes", "Conjured", "Sulfuras");
+    private final Map<ItemCategory, UpdateLogic> updateLogicMap;
 
     public UpdateLogicFactory() {
         updateLogicMap = new HashMap<>();
 
-        updateLogicMap.put("Aged Brie", new BrieUpdateLogic());
-        updateLogicMap.put("Backstage passes", new PassesUpdateLogic());
-        updateLogicMap.put("Conjured", new ConjuredUpdateLogic());
-        updateLogicMap.put("Sulfuras", new SulfurasUpdateLogic());
-        updateLogicMap.put(null, new ElseUpdateLogic());
+        updateLogicMap.put(BRIE, new BrieUpdateLogic());
+        updateLogicMap.put(PASS, new PassesUpdateLogic());
+        updateLogicMap.put(CONJURED, new ConjuredUpdateLogic());
+        updateLogicMap.put(SULFURAS, new SulfurasUpdateLogic());
+        updateLogicMap.put(ELSE, new ElseUpdateLogic());
     }
 
     public UpdateLogic findUpdateLogic(String name) {
-        for (String filter : filters) {
-            if (name.contains(filter)) {
-                return updateLogicMap.get(filter);
-            }
-        }
-        return updateLogicMap.get(null);
+        if (name.contains("Aged Brie")) {
+            return updateLogicMap.get(BRIE);
+        } else if (name.contains("Backstage passes")) {
+            return updateLogicMap.get(PASS);
+        } else if (name.contains("Conjured")) {
+            return updateLogicMap.get(CONJURED);
+        } else if (name.contains("Sulfuras")) {
+            return updateLogicMap.get(SULFURAS);
+        } else
+            return updateLogicMap.get(ELSE);
     }
 }
