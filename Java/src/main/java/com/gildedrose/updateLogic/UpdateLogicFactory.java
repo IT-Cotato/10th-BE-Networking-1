@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UpdateLogics {
+public class UpdateLogicFactory {
     private final Map<String, UpdateLogic> updateLogicMap;
     private final List<String> filters = Arrays.asList("Aged Brie", "Backstage passes", "Conjured", "Sulfuras");
 
-    public UpdateLogics() {
+    public UpdateLogicFactory() {
         updateLogicMap = new HashMap<>();
 
         updateLogicMap.put("Aged Brie", new BrieUpdateLogic());
