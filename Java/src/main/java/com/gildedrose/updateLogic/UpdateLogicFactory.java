@@ -7,9 +7,12 @@ import java.util.Map;
 
 public class UpdateLogicFactory {
     private final Map<ItemCategory, UpdateLogic> updateLogicMap;
+    private final Map<String, ItemCategory> itemMap;
 
     public UpdateLogicFactory() {
         updateLogicMap = new HashMap<>();
+        itemMap = Map.ofEntries(Map.entry("Aged Brie", BRIE), Map.entry("Backstage passes", PASS),
+            Map.entry("Conjured", CONJURED), Map.entry("Sulfuras", SULFURAS));
 
         updateLogicMap.put(BRIE, new BrieUpdateLogic());
         updateLogicMap.put(PASS, new PassesUpdateLogic());
@@ -19,15 +22,11 @@ public class UpdateLogicFactory {
     }
 
     public UpdateLogic findUpdateLogic(String name) {
-        if (name.contains("Aged Brie")) {
-            return updateLogicMap.get(BRIE);
-        } else if (name.contains("Backstage passes")) {
-            return updateLogicMap.get(PASS);
-        } else if (name.contains("Conjured")) {
-            return updateLogicMap.get(CONJURED);
-        } else if (name.contains("Sulfuras")) {
-            return updateLogicMap.get(SULFURAS);
-        } else
-            return updateLogicMap.get(ELSE);
+        for (String key : itemMap.keySet()) {
+            if (name.contains(key)) {
+                return updateLogicMap.get(itemMap.get(key));
+            }
+        }
+        return updateLogicMap.get(ELSE);
     }
 }
