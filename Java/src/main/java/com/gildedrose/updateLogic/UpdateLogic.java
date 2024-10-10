@@ -3,9 +3,9 @@ package com.gildedrose.updateLogic;
 import com.gildedrose.Item;
 
 public abstract class UpdateLogic {
-    public static final int MAX_QUALITY = 50;
-    public static final int MIN_QUALITY = 0;
-    public static final int DOWN_MULTIPLE = 2;
+    private static final int MAX_QUALITY = 50;
+    private static final int MIN_QUALITY = 0;
+    private static final int DOWN_MULTIPLE = 2;
 
     protected void decreaseSellIn(Item item) {
         item.sellIn -= 1;
