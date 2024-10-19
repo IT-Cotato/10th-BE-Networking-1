@@ -2,9 +2,7 @@ package com.gildedrose.update;
 
 import com.gildedrose.Item;
 
-import java.lang.Math;
-
-import static com.gildedrose.constant.ItemPropertyConstant.*;
+import static com.gildedrose.constant.ItemProperty.*;
 
 public class BackstagePassesUpdate extends Update {
     private static final int INCREASE_QUANTITY = 1;

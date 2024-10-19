@@ -1,9 +1,8 @@
 package com.gildedrose.update;
 
-import static com.gildedrose.constant.ItemPropertyConstant.*;
+import static com.gildedrose.constant.ItemProperty.*;
 
 import com.gildedrose.Item;
-import com.gildedrose.constant.ItemPropertyConstant;
 
 public abstract class Update {
 

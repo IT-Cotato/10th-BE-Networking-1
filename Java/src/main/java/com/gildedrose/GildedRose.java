@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.constant.ItemNameConstant;
+import com.gildedrose.constant.ItemName;
 import com.gildedrose.update.Update;
 import com.gildedrose.update.UpdateFactory;
 
@@ -16,7 +16,7 @@ class GildedRose {
     public void updateQuality() {
         for (Item item : items) {
             Update updateHandler = updateFactory.getUpdate(
-                ItemNameConstant.from(item)
+                ItemName.from(item)
             );
             updateHandler.update(item);
         }

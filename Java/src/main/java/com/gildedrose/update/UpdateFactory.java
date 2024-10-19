@@ -1,14 +1,14 @@
 package com.gildedrose.update;
 
-import static com.gildedrose.constant.ItemNameConstant.*;
+import static com.gildedrose.constant.ItemName.*;
 
-import com.gildedrose.constant.ItemNameConstant;
+import com.gildedrose.constant.ItemName;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UpdateFactory {
-    private final Map<ItemNameConstant, Update> updateMap = new ConcurrentHashMap<>();
+    private final Map<ItemName, Update> updateMap = new ConcurrentHashMap<>();
 
     public UpdateFactory() {
         updateMap.put(AGED_BRIE, new AgedBrieUpdate());
@@ -18,7 +18,7 @@ public class UpdateFactory {
         updateMap.put(DEFAULT, new DefaultUpdate());
     }
 
-    public Update getUpdate(ItemNameConstant itemName) {
+    public Update getUpdate(ItemName itemName) {
         return updateMap.get(itemName);
     }
 }

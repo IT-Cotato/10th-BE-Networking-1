@@ -1,6 +1,6 @@
 package com.gildedrose.constant;
 
-public enum ItemPropertyConstant {
+public enum ItemProperty {
     MINIMUM_QUALITY(0),
     MAXIMUM_QUALITY(50),
     BACKSTAGE_DAY_OF_10(10),
@@ -9,7 +9,7 @@ public enum ItemPropertyConstant {
 
     private final int value;
 
-    ItemPropertyConstant(int value) {
+    ItemProperty(int value) {
         this.value = value;
     }
 

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import com.gildedrose.Item;
 
-public enum ItemNameConstant {
+public enum ItemName {
     AGED_BRIE("Aged Brie"),
     BACKSTAGE_PASSES("Backstage passes"),
     SULFURAS("Sulfuras"),
@@ -13,12 +13,12 @@ public enum ItemNameConstant {
 
     private final String name;
 
-    ItemNameConstant(String name) {
+    ItemName(String name) {
         this.name = name;
     }
 
-    public static ItemNameConstant from(Item item) {
-        return Arrays.stream(ItemNameConstant.values())
+    public static ItemName from(Item item) {
+        return Arrays.stream(ItemName.values())
             .filter(modifier -> item.name.contains(modifier.name))
             .findFirst()
             .get();
