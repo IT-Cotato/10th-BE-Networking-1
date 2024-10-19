@@ -17,7 +17,7 @@ public class BackstagePassesUpdate extends Update {
             item.quality = Math.min(item.quality + 1, MAXIMUM_QUALITY.getValue());
         }
 
-        item.sellIn -= 1;
+        decreaseSellIn(item);
 
         if (item.sellIn < SELLIN_CRITERIA.getValue()) {
             item.quality = MINIMUM_QUALITY.getValue();
