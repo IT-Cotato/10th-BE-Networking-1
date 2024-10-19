@@ -10,11 +10,11 @@ public class BackstagePassesUpdate extends Update {
     @Override
     public void update(Item item) {
         if (item.sellIn <= BACKSTAGE_DAY_OF_5.getValue()) {
-            item.quality = Math.min(item.quality + 3, MAXIMUM_QUALITY.getValue());
+            increaseQuality(item, 3);
         } else if (item.sellIn <= BACKSTAGE_DAY_OF_10.getValue()) {
-            item.quality = Math.min(item.quality + 2, MAXIMUM_QUALITY.getValue());
+            increaseQuality(item, 2);
         } else {
-            item.quality = Math.min(item.quality + 1, MAXIMUM_QUALITY.getValue());
+            increaseQuality(item, 1);
         }
 
         decreaseSellIn(item);

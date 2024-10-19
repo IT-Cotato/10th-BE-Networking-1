@@ -11,10 +11,10 @@ public class AgedBrieUpdate extends Update {
     public void update(Item item) {
         decreaseSellIn(item);
 
-        item.quality = Math.min(item.quality + 1, MAXIMUM_QUALITY.getValue());
+        increaseQuality(item, 1);
 
         if (item.sellIn < SELLIN_CRITERIA.getValue()) {
-            item.quality = Math.min(item.quality + 1, MAXIMUM_QUALITY.getValue());
+            increaseQuality(item, 1);
         }
     }
 }

@@ -10,10 +10,10 @@ public class ConjuredUpdate extends Update {
     @Override
     public void update(Item item) {
         decreaseSellIn(item);
-        item.quality = Math.max(item.quality - 2, MINIMUM_QUALITY.getValue());
+        decreaseQuality(item, 2);
 
         if (item.sellIn < SELLIN_CRITERIA.getValue()) {
-            item.quality = Math.max(item.quality - 2, MINIMUM_QUALITY.getValue());
+            decreaseQuality(item ,2);
         }
     }
 }

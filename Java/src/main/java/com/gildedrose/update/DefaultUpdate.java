@@ -10,10 +10,11 @@ public class DefaultUpdate extends Update {
     @Override
     public void update(Item item) {
         decreaseSellIn(item);
-        item.quality = Math.max(item.quality - 1, MINIMUM_QUALITY.getValue());
+
+        increaseQuality(item, 1);
 
         if (item.sellIn < SELLIN_CRITERIA.getValue()) {
-            item.quality = Math.max(item.quality - 1, MINIMUM_QUALITY.getValue());
+            increaseQuality(item, 1);
         }
     }
 }
