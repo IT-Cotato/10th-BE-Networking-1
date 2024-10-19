@@ -1,10 +1,12 @@
 package com.gildedrose.constant;
 
 import java.util.Arrays;
+import java.util.Optional;
+import java.util.function.Supplier;
 
 import com.gildedrose.Item;
 
-public enum ItemName {
+public enum ItemName implements Supplier<ItemName> {
     AGED_BRIE("Aged Brie"),
     BACKSTAGE_PASSES("Backstage passes"),
     SULFURAS("Sulfuras"),
@@ -21,6 +23,11 @@ public enum ItemName {
         return Arrays.stream(ItemName.values())
             .filter(modifier -> item.name.contains(modifier.name))
             .findFirst()
-            .get();
+            .orElseGet(DEFAULT);
+    }
+
+    @Override
+    public ItemName get() {
+        return this;
     }
 }
