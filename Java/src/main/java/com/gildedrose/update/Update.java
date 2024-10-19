@@ -1,12 +1,14 @@
 package com.gildedrose.update;
 
+import static com.gildedrose.constant.ItemPropertyConstant.*;
+
 import com.gildedrose.Item;
 import com.gildedrose.constant.ItemPropertyConstant;
 
 public abstract class Update {
 
     private boolean criteriaBiggerThan(int sellIn) {
-        return sellIn < ItemPropertyConstant.SELLIN_CRITERIA.getValue();
+        return sellIn < SELLIN_CRITERIA.getValue();
     }
 
     public void decreaseSellIn(Item item) {
@@ -14,11 +16,11 @@ public abstract class Update {
     }
 
     public void increaseQuality(Item item, int quantity) {
-        item.quality = Math.max(item.quality + quantity, ItemPropertyConstant.MAXIMUM_QUALITY.getValue());
+        item.quality = Math.max(item.quality + quantity, MAXIMUM_QUALITY.getValue());
     }
 
     public void decreaseQuality(Item item, int quantity) {
-        item.quality = Math.min(item.quality - quantity, ItemPropertyConstant.MINIMUM_QUALITY.getValue());
+        item.quality = Math.min(item.quality - quantity, MINIMUM_QUALITY.getValue());
     }
 
     public void increaseQualityBySellIn(Item item, int quantity) {
@@ -35,7 +37,7 @@ public abstract class Update {
 
     public void makeMinimumQualityBySellIn(Item item) {
         if (criteriaBiggerThan(item.sellIn)) {
-            item.quality = ItemPropertyConstant.MINIMUM_QUALITY.getValue();
+            item.quality = MINIMUM_QUALITY.getValue();
         }
     }
 
