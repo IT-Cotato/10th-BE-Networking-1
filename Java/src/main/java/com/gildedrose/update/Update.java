@@ -15,11 +15,11 @@ public abstract class Update {
     }
 
     public void increaseQuality(Item item, int quantity) {
-        item.quality = Math.max(item.quality + quantity, MAXIMUM_QUALITY.getValue());
+        item.quality = Math.min(item.quality + quantity, MAXIMUM_QUALITY.getValue());
     }
 
     public void decreaseQuality(Item item, int quantity) {
-        item.quality = Math.min(item.quality - quantity, MINIMUM_QUALITY.getValue());
+        item.quality = Math.max(item.quality - quantity, MINIMUM_QUALITY.getValue());
     }
 
     public void increaseQualityBySellIn(Item item, int quantity) {
