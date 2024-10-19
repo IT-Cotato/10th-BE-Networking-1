@@ -4,11 +4,11 @@ import static com.gildedrose.constant.ItemName.*;
 
 import com.gildedrose.constant.ItemName;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class UpdateFactory {
-    private final Map<ItemName, Update> updateMap = new ConcurrentHashMap<>();
+    private final Map<ItemName, Update> updateMap = new HashMap<>();
 
     public UpdateFactory() {
         updateMap.put(AGED_BRIE, new AgedBrieUpdate());
