@@ -20,11 +20,7 @@ public class BackstagePassesUpdate extends Update {
     @Override
     public void update(Item item) {
         increaseQualityBySellIn(item);
-
         decreaseSellIn(item);
-
-        if (item.sellIn < SELLIN_CRITERIA.getValue()) {
-            item.quality = MINIMUM_QUALITY.getValue();
-        }
+        makeMinimumQualityBySellIn(item);
     }
 }

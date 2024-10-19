@@ -11,9 +11,6 @@ public class ConjuredUpdate extends Update {
     public void update(Item item) {
         decreaseSellIn(item);
         decreaseQuality(item, 2);
-
-        if (item.sellIn < SELLIN_CRITERIA.getValue()) {
-            decreaseQuality(item ,2);
-        }
+        decreaseQualityBySellIn(item, 2);
     }
 }

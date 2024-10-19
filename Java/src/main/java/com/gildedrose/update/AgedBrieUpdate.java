@@ -10,11 +10,7 @@ public class AgedBrieUpdate extends Update {
     @Override
     public void update(Item item) {
         decreaseSellIn(item);
-
         increaseQuality(item, 1);
-
-        if (item.sellIn < SELLIN_CRITERIA.getValue()) {
-            increaseQuality(item, 1);
-        }
+        increaseQualityBySellIn(item, 1);
     }
 }
