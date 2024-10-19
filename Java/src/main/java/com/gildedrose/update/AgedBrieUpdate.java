@@ -2,15 +2,14 @@ package com.gildedrose.update;
 
 import com.gildedrose.Item;
 
-import java.lang.Math;
-
-import static com.gildedrose.constant.ItemPropertyConstant.*;
-
 public class AgedBrieUpdate extends Update {
+    private static final int INCREASE_QUANTITY = 1;
+    private static final int INCREASE_QUANTITY_OVER_DATE = 1;
+
     @Override
     public void update(Item item) {
         decreaseSellIn(item);
-        increaseQuality(item, 1);
-        increaseQualityBySellIn(item, 1);
+        increaseQuality(item, INCREASE_QUANTITY);
+        increaseQualityBySellIn(item, INCREASE_QUANTITY_OVER_DATE);
     }
 }
