@@ -1,7 +1,6 @@
 package com.gildedrose.constant;
 
 import java.util.Arrays;
-import java.util.Optional;
 import java.util.function.Supplier;
 
 import com.gildedrose.Item;

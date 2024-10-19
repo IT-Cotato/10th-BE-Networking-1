@@ -3,7 +3,6 @@ package com.gildedrose.update;
 import static com.gildedrose.constant.ItemName.*;
 
 import com.gildedrose.constant.ItemName;
-
 import java.util.HashMap;
 import java.util.Map;
 
