@@ -7,8 +7,7 @@ import java.lang.Math;
 import static com.gildedrose.constant.ItemPropertyConstant.*;
 
 public class BackstagePassesUpdate extends Update {
-    @Override
-    public void update(Item item) {
+    private void increaseQualityBySellIn(Item item) {
         if (item.sellIn <= BACKSTAGE_DAY_OF_5.getValue()) {
             increaseQuality(item, 3);
         } else if (item.sellIn <= BACKSTAGE_DAY_OF_10.getValue()) {
@@ -16,6 +15,11 @@ public class BackstagePassesUpdate extends Update {
         } else {
             increaseQuality(item, 1);
         }
+    }
+
+    @Override
+    public void update(Item item) {
+        increaseQualityBySellIn(item);
 
         decreaseSellIn(item);
 
