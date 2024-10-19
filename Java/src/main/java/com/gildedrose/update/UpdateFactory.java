@@ -8,17 +8,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UpdateFactory {
-    private final Map<ItemName, Update> updateMap = new HashMap<>();
+    private final Map<ItemName, Update> updateHandlerMap = new HashMap<>();
 
     public UpdateFactory() {
-        updateMap.put(AGED_BRIE, new AgedBrieUpdate());
-        updateMap.put(BACKSTAGE_PASSES, new BackstagePassesUpdate());
-        updateMap.put(SULFURAS, new SulfurasUpdate());
-        updateMap.put(CONJURED, new ConjuredUpdate());
-        updateMap.put(DEFAULT, new DefaultUpdate());
+        updateHandlerMap.put(AGED_BRIE, new AgedBrieUpdate());
+        updateHandlerMap.put(BACKSTAGE_PASSES, new BackstagePassesUpdate());
+        updateHandlerMap.put(SULFURAS, new SulfurasUpdate());
+        updateHandlerMap.put(CONJURED, new ConjuredUpdate());
+        updateHandlerMap.put(DEFAULT, new DefaultUpdate());
     }
 
-    public Update getUpdate(ItemName itemName) {
-        return updateMap.get(itemName);
+    public Update getUpdateHandler(ItemName itemName) {
+        return updateHandlerMap.get(itemName);
     }
 }
