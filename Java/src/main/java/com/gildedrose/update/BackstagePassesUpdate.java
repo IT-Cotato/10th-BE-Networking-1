@@ -6,7 +6,7 @@ import java.lang.Math;
 
 import static com.gildedrose.constant.ItemPropertyConstant.*;
 
-public class BackstagePassesUpdate implements Update {
+public class BackstagePassesUpdate extends Update {
     @Override
     public void update(Item item) {
         if (item.sellIn <= BACKSTAGE_DAY_OF_5.getValue()) {

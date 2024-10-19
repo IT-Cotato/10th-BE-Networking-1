@@ -2,6 +2,6 @@ package com.gildedrose.update;
 
 import com.gildedrose.Item;
 
-public interface Update {
-    void update(Item item);
+public abstract class Update {
+    public abstract void update(Item item);
 }

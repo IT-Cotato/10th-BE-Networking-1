@@ -6,7 +6,7 @@ import java.lang.Math;
 
 import static com.gildedrose.constant.ItemPropertyConstant.*;
 
-public class AgedBrieUpdate implements Update {
+public class AgedBrieUpdate extends Update {
     @Override
     public void update(Item item) {
         item.sellIn -= 1;

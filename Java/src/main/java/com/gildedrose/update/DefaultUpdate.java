@@ -6,7 +6,7 @@ import java.lang.Math;
 
 import static com.gildedrose.constant.ItemPropertyConstant.*;
 
-public class DefaultUpdate implements Update {
+public class DefaultUpdate extends Update {
     @Override
     public void update(Item item) {
         item.sellIn -= 1;

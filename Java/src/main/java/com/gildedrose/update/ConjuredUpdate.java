@@ -6,7 +6,7 @@ import java.lang.Math;
 
 import static com.gildedrose.constant.ItemPropertyConstant.*;
 
-public class ConjuredUpdate implements Update {
+public class ConjuredUpdate extends Update {
     @Override
     public void update(Item item) {
         item.sellIn -= 1;
