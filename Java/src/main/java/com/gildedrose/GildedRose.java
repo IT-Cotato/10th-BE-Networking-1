@@ -6,7 +6,7 @@ import com.gildedrose.updateItem.UpdateLogicFactory;
 
 class GildedRose {
     Item[] items;
-    UpdateLogicFactory updateLogicFactory;
+    private final UpdateLogicFactory updateLogicFactory;
 
     public GildedRose(Item[] items) {
         this.items = items;
