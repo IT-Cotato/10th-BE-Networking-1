@@ -1,11 +1,12 @@
 package com.gildedrose.rules;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import com.gildedrose.Item;
 
 public class LogicFactory {
-    public static HashMap<String, Logic> logics=new HashMap<String, Logic>();
+    public static Map<String, Logic> logics=new HashMap<String, Logic>();
 
     public LogicFactory(){
         logics.put("Common", new CommonLogic());
