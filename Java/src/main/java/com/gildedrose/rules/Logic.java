@@ -20,8 +20,7 @@ public abstract class Logic {
         item.quality = Math.min(item.quality + amount, QUALITY_MAX);
     }
 
-    protected boolean checkValid(Item item) {
+    protected boolean checkValid(Item item) { //기한이 지났는 지 검사
         return item.sellIn >= 0;
     }
-
 }

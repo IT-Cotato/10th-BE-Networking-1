@@ -17,12 +17,11 @@ public class LogicFactory {
     }
 
     public Logic getLogic(Item item) {
-        for (String key : logics.keySet()) {
+        for (String key : logics.keySet()) { //logics의 키에 있는 값을 이름에서 포함하는 지 검사하여 맞는 로직 선택
             if (item.name.contains(key)) {
                 return logics.get(key);
             }
         }
         return logics.get("Common");
     }
-
 }
