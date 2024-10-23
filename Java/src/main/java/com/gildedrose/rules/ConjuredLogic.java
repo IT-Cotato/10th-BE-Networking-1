@@ -2,20 +2,16 @@ package com.gildedrose.rules;
 
 import com.gildedrose.Item;
 
-public class ConjuredLogic implements Logic{
+public class ConjuredLogic extends Logic{
     @Override
     public void update(Item item) {
-        item.sellIn--;
+        decreaseSellIn(item);
 
-        if (item.sellIn < 0) {
-            item.quality -= 4;
-
-        } else {
-            item.quality-=2;
+        if (!checkValid(item)) {
+            decreaseQuality(4, item);
         }
-
-        if (item.quality < 0) {
-            item.quality = 0;
+        else {
+            decreaseQuality(2, item);
         }
     }
 }

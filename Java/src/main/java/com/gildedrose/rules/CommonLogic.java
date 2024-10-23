@@ -2,20 +2,16 @@ package com.gildedrose.rules;
 
 import com.gildedrose.Item;
 
-public class CommonLogic implements Logic{
+public class CommonLogic extends Logic{
     @Override
     public void update(Item item) {
-        item.sellIn--;
+        decreaseSellIn(item);
 
-        if (item.sellIn < 0) {
-            item.quality -= 2;
-
-        } else {
-            item.quality--;
+        if (!checkValid(item)) {
+            decreaseQuality(2, item);
         }
-
-        if (item.quality < 0) {
-            item.quality = 0;
+        else {
+            decreaseQuality(1, item);
         }
     }
 }

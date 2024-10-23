@@ -2,26 +2,22 @@ package com.gildedrose.rules;
 
 import com.gildedrose.Item;
 
-public class BackStagePassesLogic implements Logic{
+public class BackStagePassesLogic extends Logic{
     @Override
     public void update(Item item) {
-        if (item.quality < 50) {
-            item.quality++;
+        if (item.sellIn <= 5) {
+            increaseQuality(3, item);
         }
-        if (item.sellIn < 11) {
-            if (item.quality < 50) {
-                item.quality++;
-            }
+        else if (item.sellIn <= 10) {
+            increaseQuality(2, item);
         }
-        if (item.sellIn < 6) {
-            if (item.quality < 50) {
-                item.quality++;
-            }
+        else{
+            increaseQuality(1, item);
         }
 
-        item.sellIn--;
+        decreaseSellIn(item);
 
-        if(item.sellIn < 0) {
+        if(!checkValid(item)) {
             item.quality=0;
         }
     }
