@@ -9,8 +9,8 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            ItemType type = ItemType.findByItemName(item.name);
-            type.modifyQuality(item);
+            ItemProcessor itemType = ItemProcessor.from(item.name);
+            itemType.modifyQuality(item);
         }
     }
 

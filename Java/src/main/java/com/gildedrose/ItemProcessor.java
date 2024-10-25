@@ -9,7 +9,7 @@ import com.gildedrose.modifier.DefaultQualityModifier;
 import com.gildedrose.modifier.ItemQualityModifier;
 import com.gildedrose.modifier.SulfurasQualityModifier;
 
-public enum ItemType {
+public enum ItemProcessor {
     AGED_BRIE("Aged Brie", new AgedBrieQualityModifier()),
     BACKSTAGE_TICKET("Backstage passes", new BackStageTicketQualityModifier()),
     CONJURED("Conjured", new ConjuredQualityModifier()),
@@ -19,14 +19,14 @@ public enum ItemType {
     private final String name;
     private final ItemQualityModifier modifier;
 
-    ItemType(String name, ItemQualityModifier modifier) {
+    ItemProcessor(String name, ItemQualityModifier modifier) {
         this.name = name;
         this.modifier = modifier;
     }
 
-    public static ItemType findByItemName(String itemName) {
+    public static ItemProcessor from(String itemName) {
         return Arrays.stream(values())
-            .filter(itemType -> itemName.contains(itemType.name))
+            .filter(itemProcessor -> itemName.contains(itemProcessor.name))
             .findFirst()
             .orElse(DEFAULT);
     }
@@ -34,5 +34,4 @@ public enum ItemType {
     public void modifyQuality(Item item) {
         modifier.modify(item);
     }
-
 }
