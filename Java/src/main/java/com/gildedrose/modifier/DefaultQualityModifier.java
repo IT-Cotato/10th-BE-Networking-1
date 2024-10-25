@@ -1,4 +1,7 @@
-package com.gildedrose;
+package com.gildedrose.modifier;
+
+import com.gildedrose.Constraints;
+import com.gildedrose.Item;
 
 public class DefaultQualityModifier implements ItemQualityModifier {
 
