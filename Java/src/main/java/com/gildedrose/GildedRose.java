@@ -13,5 +13,4 @@ class GildedRose {
             itemType.modifyQuality(item);
         }
     }
-
 }

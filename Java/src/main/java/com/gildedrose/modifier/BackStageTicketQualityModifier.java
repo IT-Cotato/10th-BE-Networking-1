@@ -8,7 +8,6 @@ public class BackStageTicketQualityModifier implements ItemQualityModifier {
 
     @Override
     public void modify(Item item) {
-
         if (item.sellIn > BACKSTAGE_PASSES_LEFT_10.value()) {
             item.quality = Math.min(QUALITY_UPPER_LIMIT.value(), increaseQuality(item));
         } else if (item.sellIn > BACKSTAGE_PASSES_LEFT_5.value()) {

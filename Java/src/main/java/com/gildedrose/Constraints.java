@@ -22,5 +22,4 @@ public enum Constraints {
     public int value() {
         return value;
     }
-
 }
