@@ -1,6 +1,7 @@
 package com.gildedrose.modifier;
 
-import com.gildedrose.Constraints;
+import static com.gildedrose.Constraints.*;
+
 import com.gildedrose.Item;
 
 public class BackStageTicketQualityModifier implements ItemQualityModifier {
@@ -8,16 +9,16 @@ public class BackStageTicketQualityModifier implements ItemQualityModifier {
     @Override
     public void modify(Item item) {
 
-        if (item.sellIn > Constraints.BACKSTAGE_PASSES_LEFT_10.value()) {
-            item.quality = Math.min(Constraints.QUALITY_UPPER_LIMIT.value(), increaseQuality(item));
-        } else if (item.sellIn > Constraints.BACKSTAGE_PASSES_LEFT_5.value()) {
-            item.quality = Math.min(Constraints.QUALITY_UPPER_LIMIT.value(),
-                increaseQuality(item, Constraints.QUALITY_INCREASE_BACKSTAGE_PASSES_LEFT_10.value()));
-        } else if (item.sellIn >= Constraints.SELLIN_LOWER_LIMIT.value()) {
-            item.quality = Math.min(Constraints.QUALITY_UPPER_LIMIT.value(),
-                increaseQuality(item, Constraints.QUALITY_INCREASE_BACKSTAGE_PASSES_LEFT_5.value()));
+        if (item.sellIn > BACKSTAGE_PASSES_LEFT_10.value()) {
+            item.quality = Math.min(QUALITY_UPPER_LIMIT.value(), increaseQuality(item));
+        } else if (item.sellIn > BACKSTAGE_PASSES_LEFT_5.value()) {
+            item.quality = Math.min(QUALITY_UPPER_LIMIT.value(),
+                increaseQuality(item, QUALITY_INCREASE_BACKSTAGE_PASSES_LEFT_10.value()));
+        } else if (item.sellIn >= SELLIN_LOWER_LIMIT.value()) {
+            item.quality = Math.min(QUALITY_UPPER_LIMIT.value(),
+                increaseQuality(item, QUALITY_INCREASE_BACKSTAGE_PASSES_LEFT_5.value()));
         } else {
-            item.quality = Constraints.QUALITY_LOWER_LIMIT.value();
+            item.quality = QUALITY_LOWER_LIMIT.value();
         }
 
         decreaseSellIn(item);
@@ -30,7 +31,7 @@ public class BackStageTicketQualityModifier implements ItemQualityModifier {
 
     @Override
     public int increaseQuality(Item item) {
-        return item.quality + Constraints.QUALITY_INCREASE_DEFAULT.value();
+        return item.quality + QUALITY_INCREASE_DEFAULT.value();
     }
 
     public int increaseQuality(Item item, int value) {

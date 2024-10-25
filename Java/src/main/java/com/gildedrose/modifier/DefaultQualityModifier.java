@@ -1,16 +1,17 @@
 package com.gildedrose.modifier;
 
-import com.gildedrose.Constraints;
+import static com.gildedrose.Constraints.*;
+
 import com.gildedrose.Item;
 
 public class DefaultQualityModifier implements ItemQualityModifier {
 
     @Override
     public void modify(Item item) {
-        item.quality = Math.max(Constraints.QUALITY_LOWER_LIMIT.value(), decreaseQuality(item));
+        item.quality = Math.max(QUALITY_LOWER_LIMIT.value(), decreaseQuality(item));
 
-        if (item.sellIn <= Constraints.SELLIN_LOWER_LIMIT.value()) {
-            item.quality = Math.max(Constraints.QUALITY_LOWER_LIMIT.value(), decreaseQuality(item));
+        if (item.sellIn <= SELLIN_LOWER_LIMIT.value()) {
+            item.quality = Math.max(QUALITY_LOWER_LIMIT.value(), decreaseQuality(item));
         }
     }
 
@@ -26,6 +27,6 @@ public class DefaultQualityModifier implements ItemQualityModifier {
 
     @Override
     public int decreaseQuality(Item item) {
-        return item.quality - Constraints.QUALITY_DECREASE_DEFAULT.value();
+        return item.quality - QUALITY_DECREASE_DEFAULT.value();
     }
 }
