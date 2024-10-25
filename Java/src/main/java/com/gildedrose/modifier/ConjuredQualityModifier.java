@@ -7,15 +7,27 @@ public class ConjuredQualityModifier implements ItemQualityModifier {
 
     @Override
     public void modify(Item item) {
-        item.quality = Math.max(Constraints.QUALITY_LOWER_LIMIT.value(),
-            item.quality - Constraints.QUALITY_DECREASE_CONJURED.value());
+        item.quality = Math.max(Constraints.QUALITY_LOWER_LIMIT.value(), decreaseQuality(item));
 
         if (item.sellIn <= Constraints.SELLIN_LOWER_LIMIT.value()) {
-            item.quality = Math.max(Constraints.QUALITY_LOWER_LIMIT.value(),
-                item.quality - Constraints.QUALITY_DECREASE_CONJURED.value());
+            item.quality = Math.max(Constraints.QUALITY_LOWER_LIMIT.value(), decreaseQuality(item));
         }
 
-        item.sellIn--;
+        decreaseSellIn(item);
+    }
 
+    @Override
+    public void decreaseSellIn(Item item) {
+        item.sellIn--;
+    }
+
+    @Override
+    public int increaseQuality(Item item) {
+        return item.quality;
+    }
+
+    @Override
+    public int decreaseQuality(Item item) {
+        return item.quality - Constraints.QUALITY_DECREASE_CONJURED.value();
     }
 }
