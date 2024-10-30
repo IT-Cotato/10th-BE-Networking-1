@@ -11,4 +11,3 @@ public class SulfurasItem extends UpdateItem {
     public void updateQuality() {
     }
 }
-

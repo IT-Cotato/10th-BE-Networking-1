@@ -10,6 +10,7 @@ class GildedRose {
     public GildedRose(Item[] items) {
         this.items = items;
         this.updatingItems = new UpdateItem[items.length];
+
         for (int i = 0; i < items.length; i++) {
             if (items[i].name.equals("Aged Brie")) {
                 updatingItems[i] = new AgedBrieItem(items[i]);
@@ -29,10 +30,6 @@ class GildedRose {
         //item에 따라 적절한 구현클래스 로직 실행
         for (UpdateItem item : updatingItems) {
             item.updateQuality();
-
         }
     }
-
 }
-
-

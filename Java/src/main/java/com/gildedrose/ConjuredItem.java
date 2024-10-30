@@ -10,12 +10,13 @@ public class ConjuredItem extends UpdateItem {
     @Override
     public void updateQuality() {
         doubleDecreaseQuality(item);
+
         //나머지 일수가 없어지면 2배로 감소
         if (item.sellIn < 0) {
             doubleDecreaseQuality(item);
         }
+
         fixQuality(item);
         decreaseSellIn(item);
     }
 }
-
