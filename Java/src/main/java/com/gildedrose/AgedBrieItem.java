@@ -1,7 +1,7 @@
 package com.gildedrose;
 
-public class AgedBrieItem implements UpdatingItem {
-    private Item item;
+public class AgedBrieItem extends UpdateItem {
+    private final Item item;
 
     public AgedBrieItem(Item item) {
         this.item = item;
@@ -9,19 +9,14 @@ public class AgedBrieItem implements UpdatingItem {
 
     @Override
     public void updateQuality() {
-        if (item.sellIn > 0) {
-            item.quality += 1;
-            if (item.quality > 50) {
-                item.quality = 50;
-            }
-        } else {
-            item.quality += 2;
-            if (item.quality > 50) {
-                item.quality = 50;
-            }
+        increaseQuality(item);
+        if (item.sellIn < 0) {
+            increaseQuality(item);
         }
-        item.sellIn -= 1;
+        fixQuality(item);
+        decreaseSellIn(item);
     }
+
 }
 
 

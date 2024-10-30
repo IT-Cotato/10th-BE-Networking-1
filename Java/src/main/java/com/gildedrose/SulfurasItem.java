@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class SulfurasItem implements UpdatingItem {
+public class SulfurasItem extends UpdateItem {
     private Item item;
 
     public SulfurasItem(Item item) {
@@ -9,7 +9,6 @@ public class SulfurasItem implements UpdatingItem {
 
     @Override
     public void updateQuality() {
-
     }
 }
 

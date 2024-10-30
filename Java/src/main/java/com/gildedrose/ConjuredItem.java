@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class ConjuredItem implements UpdatingItem {
+public class ConjuredItem extends UpdateItem {
     private Item item;
 
     public ConjuredItem(Item item) {
@@ -9,18 +9,12 @@ public class ConjuredItem implements UpdatingItem {
 
     @Override
     public void updateQuality() {
-        if (item.sellIn > 0) {
-            item.quality -= 2;
-            if (item.quality < 0) {
-                item.quality = 0;
-            }
-        } else {
-            item.quality -= 4;
-            if (item.quality < 0) {
-                item.quality = 0;
-            }
+        doubleDecreaseQuality(item);
+        if (item.sellIn < 0) {
+            doubleDecreaseQuality(item);
         }
-        item.sellIn -= 1;
+        fixQuality(item);
+        decreaseSellIn(item);
     }
 }
 

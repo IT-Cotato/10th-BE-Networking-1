@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class CommonItem implements UpdatingItem {
+public class CommonItem extends UpdateItem {
 
     private Item item;
 
@@ -10,14 +10,11 @@ public class CommonItem implements UpdatingItem {
 
     @Override
     public void updateQuality() {
-        if (item.quality > 0 && item.sellIn > 0) {
-            item.quality -= 1;
-        } else if (item.quality > 0 && item.sellIn < 0) {
-            item.quality -= 2;
-            if (item.quality < 0) {
-                item.quality = 0;
-            }
+        decreaseQuality(item);
+        if (item.sellIn < 0) {
+            decreaseQuality(item);
         }
-        item.sellIn -= 1;
+        fixQuality(item);
+        decreaseSellIn(item);
     }
 }

@@ -3,11 +3,11 @@ package com.gildedrose;
 class GildedRose {
     Item[] items;
 
-    UpdatingItem[] updatingItems;
+    UpdateItem[] updatingItems;
 
     public GildedRose(Item[] items) {
         this.items = items;
-        this.updatingItems = new UpdatingItem[items.length];
+        this.updatingItems = new UpdateItem[items.length];
         for (int i = 0; i < items.length; i++) {
             if (items[i].name.equals("Aged Brie")) {
                 updatingItems[i] = new AgedBrieItem(items[i]);
@@ -24,7 +24,7 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (UpdatingItem item : updatingItems) {
+        for (UpdateItem item : updatingItems) {
             item.updateQuality();
 
         }

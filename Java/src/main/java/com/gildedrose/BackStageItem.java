@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class BackStageItem implements UpdatingItem {
+public class BackStageItem extends UpdateItem {
     private Item item;
 
     public BackStageItem(Item item) {
@@ -9,20 +9,18 @@ public class BackStageItem implements UpdatingItem {
 
     @Override
     public void updateQuality() {
+        increaseQuality(item);
+        if (item.sellIn <= 10) {
+            increaseQuality(item);
+        }
+        if (item.sellIn <= 5) {
+            increaseQuality(item);
+        }
         if (item.sellIn == 0) {
             item.quality = 0;
-        } else if (item.sellIn <= 5) {
-            item.quality += 3;
-            if (item.quality > 50) {
-                item.quality = 50;
-            }
-        } else if (item.sellIn <= 10) {
-            item.quality += 2;
-            if (item.quality > 50) {
-                item.quality = 50;
-            }
         }
-        item.sellIn -= 1;
+        fixQuality(item);
+        decreaseSellIn(item);
     }
 }
 
