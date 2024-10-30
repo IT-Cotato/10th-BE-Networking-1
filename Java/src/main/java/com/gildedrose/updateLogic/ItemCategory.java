@@ -4,7 +4,8 @@ public enum ItemCategory {
     BRIE("Aged Brie"),
     PASS("Backstage passes to a "),
     CONJURED("Conjured "),
-    SULFURAS("Sulfuras");
+    SULFURAS("Sulfuras"),
+    NORMAL("THIS_IS_NORMAL!!");
 
     private final String value;
 
