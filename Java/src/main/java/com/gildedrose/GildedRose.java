@@ -1,12 +1,8 @@
 package com.gildedrose;
 
 import com.gildedrose.storage.GildedRoseItem;
-import com.gildedrose.storage.item.AgedBrie;
-import com.gildedrose.storage.item.BackstagePasses;
-import com.gildedrose.storage.item.Conjured;
-import com.gildedrose.storage.item.Normal;
-import com.gildedrose.storage.item.Sulfuras;
 
+// GildedRoseItem에 대한 비즈니스 로직을 처리하는 역할을 담당
 class GildedRose {
 
     private Item[] items;
@@ -15,16 +11,18 @@ class GildedRose {
         this.items = items;
     }
 
+    // 각 아이템 별로 하루가 지날 때마다 품질과 판매 일수를 업데이트
     public void updateQuality() {
         for (Item item : items) {
-            GildedRoseItem gildedRoseItem = getGildedRoseItem(item);
+            GildedRoseItem gildedRoseItem = GildedRoseItemFactory.create(item);
             gildedRoseItem.update();
         }
     }
 
+    // 각 아이템 별로 초기값 설정
     public void init() {
         for (Item item : items) {
-            GildedRoseItem gildedRoseItem = getGildedRoseItem(item);
+            GildedRoseItem gildedRoseItem = GildedRoseItemFactory.create(item);
             gildedRoseItem.init();
         }
     }
@@ -33,18 +31,4 @@ class GildedRose {
         return items;
     }
 
-    private GildedRoseItem getGildedRoseItem(Item item) {
-        switch (item.name) {
-            case "Aged Brie":
-                return new AgedBrie(item);
-            case "Backstage passes to a TAFKAL80ETC concert":
-                return new BackstagePasses(item);
-            case "Sulfuras, Hand of Ragnaros":
-                return new Sulfuras(item);
-            case "Conjured Mana Cake":
-                return new Conjured(item);
-            default:
-                return new Normal(item);
-        }
-    }
 }
