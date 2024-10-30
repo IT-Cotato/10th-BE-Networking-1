@@ -2,7 +2,7 @@ package com.gildedrose.updateLogic;
 
 import com.gildedrose.Item;
 
-public class ElseUpdateLogic extends UpdateLogic {
+public class NormalUpdateLogic extends UpdateLogic {
     @Override
     public void update(Item item) {
         decreaseSellIn(item);
