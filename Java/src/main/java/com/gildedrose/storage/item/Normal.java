@@ -9,14 +9,17 @@ public class Normal extends GildedRoseItem {
         super(item);
     }
 
+    // Quality : 1씩 감소, SellIn : 1씩 감소
+    // 판매 일수가 0보다 작은 경우 품질 2배 감소
     @Override
     public void update() {
 
-        decreaseQuality(1);
+        decreaseQuality(COMMON_QUALITY_DECREASE_RATE);
         decreaseSellIn();
 
-        if (gildedRoseItem.sellIn < 0) // 판매 일수가 0보다 작은 경우 품질 2배 감소
-            decreaseQuality(1);
+        if (gildedRoseItem.sellIn < 0) {
+            decreaseQuality(COMMON_QUALITY_DECREASE_RATE);
+        }
     }
 
     @Override
