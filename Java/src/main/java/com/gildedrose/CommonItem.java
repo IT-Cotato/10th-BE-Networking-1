@@ -11,6 +11,7 @@ public class CommonItem extends UpdateItem {
     @Override
     public void updateQuality() {
         decreaseQuality(item);
+        //나머지 일수가 없어지면 2배로 감소
         if (item.sellIn < 0) {
             decreaseQuality(item);
         }
