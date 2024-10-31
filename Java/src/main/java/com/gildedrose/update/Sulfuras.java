@@ -10,6 +10,6 @@ public class Sulfuras extends ItemUpdateLogic {
 
     @Override
     public void update() {
-
+        // Sulfuras는 품질과 판매일이 변하지 않음
     }
 }

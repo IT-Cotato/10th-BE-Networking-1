@@ -13,6 +13,7 @@ public class NormalItem extends ItemUpdateLogic {
         decreaseSellIn();
         decreaseQuality(1);
 
+        // 판매일이 지나면 추가 감소
         if (item.sellIn < 0) {
             decreaseQuality(1);
         }

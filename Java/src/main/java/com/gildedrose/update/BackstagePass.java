@@ -16,6 +16,7 @@ public class BackstagePass extends ItemUpdateLogic {
         decreaseSellIn();
         increaseQuality(1);
 
+        // 판매일에 따라 추가 품질 증가
         if (item.sellIn < BACKSTAGE_THRESHOLD_10_DAYS) {
             increaseQuality(1);
         }
@@ -23,6 +24,7 @@ public class BackstagePass extends ItemUpdateLogic {
             increaseQuality(1);
         }
 
+        // 판매일이 지나면 품질 초기화
         if (item.sellIn < 0) {
             item.quality = RESET_QUALITY;
         }
