@@ -1,6 +1,8 @@
 package com.gildedrose;
 
 import com.gildedrose.*;
+import com.gildedrose.item.*;
+import com.gildedrose.item.type.*;
 
 class GildedRose {
     Item[] items;
@@ -10,21 +12,9 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-
-            Item item = items[i];
-
-            if (items[i].name.equals("Aged Brie")) {
-                ItemType.AGED_BRIE.updateQuality(item);
-            } else if (items[i].name.startsWith("Sulfuras")) {
-                ItemType.SULFURAS.updateQuality(item);
-            } else if (items[i].name.startsWith("Backstage passes")) {
-                ItemType.BACKSTAGE_PASSES.updateQuality(item);
-            } else if (items[i].name.startsWith("Conjured")) {
-                ItemType.CONJURED.updateQuality(item);
-            } else {
-                ItemType.NORMAL_ITEM.updateQuality(item);
-            }
+        for (Item item : items) {
+            ItemType itemType = ItemFactory.from(item);
+            itemType.updateQuality(item);
         }
     }
 }
