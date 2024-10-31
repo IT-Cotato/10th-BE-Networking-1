@@ -10,20 +10,12 @@ public class AgedBrie extends ItemUpdateLogic {
 
     @Override
     public void update() {
-        decreaseSellIn(item);
-        increaseQuality(item);
+        decreaseSellIn();
+        increaseQuality(1);
+
         if (item.sellIn < 0) {
-            increaseQuality(item);
+            increaseQuality(1);
         }
     }
 
-    private void decreaseSellIn(Item item) {
-        item.sellIn--;
-    }
-
-    private void increaseQuality(Item item) {
-        if (item.quality < 50) {
-            item.quality++;
-        }
-    }
 }

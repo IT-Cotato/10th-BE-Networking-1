@@ -10,20 +10,12 @@ public class NormalItem extends ItemUpdateLogic {
 
     @Override
     public void update() {
-        decreaseSellIn(item);
-        decreaseQuality(item);
+        decreaseSellIn();
+        decreaseQuality(1);
+
         if (item.sellIn < 0) {
-            decreaseQuality(item);
+            decreaseQuality(1);
         }
     }
 
-    private void decreaseSellIn(Item item) {
-        item.sellIn--;
-    }
-
-    private void decreaseQuality(Item item) {
-        if (item.quality > 0) {
-            item.quality--;
-        }
-    }
 }

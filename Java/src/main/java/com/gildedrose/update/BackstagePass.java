@@ -4,35 +4,27 @@ import com.gildedrose.Item;
 
 public class BackstagePass extends ItemUpdateLogic {
 
+    private static final int BACKSTAGE_THRESHOLD_10_DAYS = 10;
+    private static final int BACKSTAGE_THRESHOLD_5_DAYS = 5;
+
     public BackstagePass(Item item) {
         super(item);
     }
 
     @Override
     public void update() {
-        decreaseSellIn(item);
-        increaseQuality(item);
+        decreaseSellIn();
+        increaseQuality(1);
 
-        if (item.sellIn <= 10) {
-            increaseQuality(item);
+        if (item.sellIn < BACKSTAGE_THRESHOLD_10_DAYS) {
+            increaseQuality(1);
         }
-
-        if (item.sellIn <= 5) {
-            increaseQuality(item);
+        if (item.sellIn < BACKSTAGE_THRESHOLD_5_DAYS) {
+            increaseQuality(1);
         }
 
         if (item.sellIn < 0) {
-            item.quality = 0;
-        }
-    }
-
-    private void decreaseSellIn(Item item) {
-        item.sellIn--;
-    }
-
-    private void increaseQuality(Item item) {
-        if (item.quality < 50) {
-            item.quality++;
+            item.quality = RESET_QUALITY;
         }
     }
 }

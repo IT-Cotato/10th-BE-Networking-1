@@ -10,20 +10,11 @@ public class Conjured extends ItemUpdateLogic {
 
     @Override
     public void update() {
-        decreaseSellIn(item);
-        decreaseQualityTwice(item);
+        decreaseSellIn();
+        decreaseQuality(2);
+
         if (item.sellIn < 0) {
-            decreaseQualityTwice(item);
-        }
-    }
-
-    private void decreaseSellIn(Item item) {
-        item.sellIn--;
-    }
-
-    private void decreaseQualityTwice(Item item) {
-        if (item.quality > 0) {
-            item.quality = Math.max(0, item.quality - 2);
+            decreaseQuality(2);
         }
     }
 }
