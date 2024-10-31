@@ -2,9 +2,14 @@ package com.gildedrose.update;
 
 import com.gildedrose.Item;
 
-public class NormalItem implements ItemUpdateLogic {
+public class NormalItem extends ItemUpdateLogic {
+
+    public NormalItem(Item item) {
+        super(item);
+    }
+
     @Override
-    public void update(Item item) {
+    public void update() {
         decreaseSellIn(item);
         decreaseQuality(item);
         if (item.sellIn < 0) {

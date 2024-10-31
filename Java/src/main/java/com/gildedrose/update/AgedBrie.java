@@ -2,9 +2,14 @@ package com.gildedrose.update;
 
 import com.gildedrose.Item;
 
-public class AgedBrie implements ItemUpdateLogic {
+public class AgedBrie extends ItemUpdateLogic {
+
+    public AgedBrie(Item item) {
+        super(item);
+    }
+
     @Override
-    public void update(Item item) {
+    public void update() {
         decreaseSellIn(item);
         increaseQuality(item);
         if (item.sellIn < 0) {

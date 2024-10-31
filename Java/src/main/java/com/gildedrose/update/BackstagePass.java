@@ -2,9 +2,14 @@ package com.gildedrose.update;
 
 import com.gildedrose.Item;
 
-public class BackstagePass implements ItemUpdateLogic {
+public class BackstagePass extends ItemUpdateLogic {
+
+    public BackstagePass(Item item) {
+        super(item);
+    }
+
     @Override
-    public void update(Item item) {
+    public void update() {
         decreaseSellIn(item);
         increaseQuality(item);
 

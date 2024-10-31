@@ -13,7 +13,7 @@ class GildedRose {
     public void updateQuality() {
         for (Item item : items) {
             ItemUpdateLogic itemUpdateLogic = ItemUpdateLogicFactory.ItemUpdateLogic(item);
-            itemUpdateLogic.update(item);
+            itemUpdateLogic.update();
         }
     }
 }
