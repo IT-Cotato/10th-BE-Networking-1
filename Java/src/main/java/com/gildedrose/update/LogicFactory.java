@@ -1,20 +1,21 @@
 package com.gildedrose.update;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.gildedrose.Item;
 
 public class LogicFactory {
+    private static final Map<String, Logic> logicMap = new HashMap<>();
+
+    static {
+        logicMap.put("Aged Brie", new AgedBrie());
+        logicMap.put("Backstage passes to a TAFKAL80ETC concert", new BackstagePass());
+        logicMap.put("Sulfuras, Hand of Ragnaros", new Sulfuras());
+        logicMap.put("Conjured Mana Cake", new Conjured());
+    }
+
     public static Logic getLogic(Item item) {
-        switch (item.name) {
-            case "Aged Brie":
-                return new AgedBrie();
-            case "Backstage passes to a TAFKAL80ETC concert":
-                return new BackstagePass();
-            case "Sulfuras, Hand of Ragnaros":
-                return new Sulfuras();
-            case "Conjured Mana Cake":
-                return new Conjured();
-            default:
-                return new NormalItem();
-        }
+        return logicMap.getOrDefault(item.name, new NormalItem());
     }
 }
