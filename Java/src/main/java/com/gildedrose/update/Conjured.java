@@ -2,7 +2,7 @@ package com.gildedrose.update;
 
 import com.gildedrose.Item;
 
-public class Conjured implements Logic{
+public class Conjured implements ItemUpdateLogic {
     @Override
     public void update(Item item) {
         decreaseSellIn(item);

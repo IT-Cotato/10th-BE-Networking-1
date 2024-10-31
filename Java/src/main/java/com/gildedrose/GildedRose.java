@@ -1,7 +1,7 @@
 package com.gildedrose;
 
-import com.gildedrose.update.Logic;
-import com.gildedrose.update.LogicFactory;
+import com.gildedrose.update.ItemUpdateLogic;
+import com.gildedrose.update.ItemUpdateLogicFactory;
 
 class GildedRose {
     Item[] items;
@@ -12,8 +12,8 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            Logic logic = LogicFactory.getLogic(item);
-            logic.update(item);
+            ItemUpdateLogic itemUpdateLogic = ItemUpdateLogicFactory.ItemUpdateLogic(item);
+            itemUpdateLogic.update(item);
         }
     }
 }

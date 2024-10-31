@@ -2,7 +2,7 @@ package com.gildedrose.update;
 
 import com.gildedrose.Item;
 
-public class BackstagePass implements Logic{
+public class BackstagePass implements ItemUpdateLogic {
     @Override
     public void update(Item item) {
         decreaseSellIn(item);

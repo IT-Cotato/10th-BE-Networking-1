@@ -5,8 +5,8 @@ import java.util.Map;
 
 import com.gildedrose.Item;
 
-public class LogicFactory {
-    private static final Map<String, Logic> logicMap = new HashMap<>();
+public class ItemUpdateLogicFactory {
+    private static final Map<String, ItemUpdateLogic> logicMap = new HashMap<>();
 
     static {
         logicMap.put("Aged Brie", new AgedBrie());
@@ -15,7 +15,7 @@ public class LogicFactory {
         logicMap.put("Conjured Mana Cake", new Conjured());
     }
 
-    public static Logic getLogic(Item item) {
+    public static ItemUpdateLogic ItemUpdateLogic(Item item) {
         return logicMap.getOrDefault(item.name, new NormalItem());
     }
 }
