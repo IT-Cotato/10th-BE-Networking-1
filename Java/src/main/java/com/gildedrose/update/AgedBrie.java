@@ -7,13 +7,13 @@ public class AgedBrie implements UpdateLogic{
     @Override
     public void update(Item item) {
 
-        if (item.quality < 50) {
+        if (item.quality < ItemConstants.QUALITY_MAX) {
             item.quality++;
         }
 
         item.sellIn--;
 
-        if (item.sellIn < 0) {
+        if (item.sellIn < ItemConstants.QUALITY_MIN) {
             item.quality++;
         }
     }
