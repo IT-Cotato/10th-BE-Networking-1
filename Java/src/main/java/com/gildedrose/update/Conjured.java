@@ -4,16 +4,13 @@ import static com.gildedrose.update.ItemConstants.*;
 
 import com.gildedrose.Item;
 
-public class Conjured implements UpdateLogic{
+public class Conjured extends UpdateLogic{
 
     @Override
     public void update(Item item) {
 
-        if (item.quality > QUALITY_MIN) {
-            item.quality -= QUALITY_DECREMENT_MULTIPLIER ;
-        }
-
-        item.sellIn--;
+        decreaseQuality(item, QUALITY_DECREMENT_MULTIPLIER);
+        decreaseSellIn(item);
 
         if (item.sellIn < QUALITY_MIN && item.quality > QUALITY_MIN) {
             item.quality -= QUALITY_DECREMENT_MULTIPLIER ;

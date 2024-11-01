@@ -4,7 +4,7 @@ import static com.gildedrose.update.ItemConstants.*;
 
 import com.gildedrose.Item;
 
-public class BackstagePass implements UpdateLogic{
+public class BackstagePass extends UpdateLogic {
 
     private static final int BACKSTAGE_SELL_IN_THRESHOLD_10 = 10;
     private static final int BACKSTAGE_SELL_IN_THRESHOLD_5 = 5;
@@ -12,17 +12,14 @@ public class BackstagePass implements UpdateLogic{
     @Override
     public void update(Item item) {
 
-        if (item.quality < QUALITY_MAX) {
-            item.quality++;
-            if (item.sellIn <= BACKSTAGE_SELL_IN_THRESHOLD_10 && item.quality < QUALITY_MAX) {
-                item.quality++;
-            }
-            if (item.sellIn <= BACKSTAGE_SELL_IN_THRESHOLD_5 && item.quality < QUALITY_MAX) {
-                item.quality++;
-            }
+        if (item.sellIn <= BACKSTAGE_SELL_IN_THRESHOLD_10) {
+            increaseQuality(item, DEFAULT_QUALITY_INCREMENT);
+        }
+        if (item.sellIn <= BACKSTAGE_SELL_IN_THRESHOLD_5) {
+            increaseQuality(item, DEFAULT_QUALITY_INCREMENT);
         }
 
-        item.sellIn--;
+        decreaseSellIn(item);
 
         if (item.sellIn < QUALITY_MIN) {
             item.quality = QUALITY_MIN;

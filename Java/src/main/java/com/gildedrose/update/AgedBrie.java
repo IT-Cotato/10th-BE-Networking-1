@@ -1,20 +1,19 @@
 package com.gildedrose.update;
 
+import static com.gildedrose.update.ItemConstants.*;
+
 import com.gildedrose.Item;
 
-public class AgedBrie implements UpdateLogic{
+public class AgedBrie extends UpdateLogic {
 
     @Override
     public void update(Item item) {
 
-        if (item.quality < ItemConstants.QUALITY_MAX) {
-            item.quality++;
-        }
+        increaseQuality(item, DEFAULT_QUALITY_INCREMENT);
+        decreaseSellIn(item);
 
-        item.sellIn--;
-
-        if (item.sellIn < ItemConstants.QUALITY_MIN) {
-            item.quality++;
+        if (item.sellIn < QUALITY_MIN) {
+            increaseQuality(item, DEFAULT_QUALITY_INCREMENT);
         }
     }
 }
